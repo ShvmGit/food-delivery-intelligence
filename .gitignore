@@ -30,6 +30,8 @@ dist/
 build/
 
 # Old/superseded files (kept on disk, excluded from repo)
+FDD.txt
+FDD.csv
 Code.py
 cod1.py
 regression_model.py
