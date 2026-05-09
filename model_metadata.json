@@ -1,0 +1,54 @@
+{
+  "model_type": "RandomForest",
+  "features": [
+    "distance_km",
+    "pickup_delay_min",
+    "traffic_score",
+    "weather_score",
+    "delivery_person_age",
+    "delivery_person_ratings",
+    "vehicle_condition",
+    "multiple_deliveries",
+    "order_hour",
+    "is_peak_hour"
+  ],
+  "target": "time_takenmin",
+  "test_metrics": {
+    "r2": 0.8352,
+    "mae": 3.1107,
+    "rmse": 3.85
+  },
+  "cv_r2_mean": 0.8298,
+  "feature_importances": {
+    "distance_km": 0.119,
+    "pickup_delay_min": 0.0207,
+    "traffic_score": 0.1374,
+    "weather_score": 0.1825,
+    "delivery_person_age": 0.0968,
+    "delivery_person_ratings": 0.2276,
+    "vehicle_condition": 0.0759,
+    "multiple_deliveries": 0.1311,
+    "order_hour": 0.0079,
+    "is_peak_hour": 0.0011
+  },
+  "training_samples": 31456,
+  "test_samples": 7864,
+  "all_results": {
+    "LinearRegression": {
+      "test": {
+        "r2": 0.5149,
+        "mae": 5.2524,
+        "rmse": 6.6048
+      },
+      "cv_r2": 0.5099
+    },
+    "RandomForest": {
+      "test": {
+        "r2": 0.8352,
+        "mae": 3.1107,
+        "rmse": 3.85
+      },
+      "cv_r2": 0.8298
+    }
+  }
+}

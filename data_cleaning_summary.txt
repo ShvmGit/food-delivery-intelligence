@@ -1,0 +1,87 @@
+# Food Delivery Dataset Cleaning Summary
+
+## Overview
+This document summarizes the data cleaning and preprocessing steps performed on the Food Delivery Dataset (originally FDD.txt, converted to FDD.csv). The dataset contains information about food delivery operations including delivery personnel details, order timing, weather conditions, and delivery metrics.
+
+## Initial Dataset Issues Identified
+
+### 1. Data Format
+- **Problem**: Data was stored in JSON format within a .txt file
+- **Solution**: Converted to CSV format for easier analysis and processing
+
+### 2. Missing Values
+- **Problem**: 846 missing values in the `multiple_deliveries` column
+- **Solution**: Filled missing values with 0 (representing single deliveries)
+
+### 3. Inconsistent Column Names
+- **Problem**: Column names had spaces, inconsistent capitalization, and special characters (e.g., "Time_taken(min)")
+- **Solution**: Standardized all column names to lowercase with underscores (e.g., "time_takenmin")
+
+### 4. String Data Issues
+- **Problem**: Leading and trailing whitespace in string columns causing inconsistent data
+- **Solution**: Applied lstrip() and rstrip() to remove extra spaces from all string columns
+
+### 5. Incorrect Data Types
+- **Problem**: Some numeric columns were stored as strings or had incorrect types
+- **Solution**: Converted appropriate columns to proper numeric types using pd.to_numeric()
+
+### 6. Time Column Format Issues
+- **Problem**: Time columns ("Time_Orderd", "Time_Order_picked") were stored as strings in "HH:MM:SS" format
+- **Solution**: Converted to datetime objects for proper time-based operations
+
+### 7. Invalid Time Relationships
+- **Problem**: 789 records had negative pickup delays (pickup time before order time)
+- **Solution**: Removed these invalid records as they represent data entry errors
+
+### 8. Duplicate Records
+- **Problem**: Potential duplicate entries
+- **Solution**: Checked for duplicates (none found in this dataset)
+
+### 9. Outlier Values
+- **Problem**: Extreme delivery times (≥120 minutes) that are unrealistic
+- **Solution**: Removed outliers to prevent skewing analysis
+
+### 10. Impossible Age Values
+- **Problem**: Delivery personnel ages outside realistic working range
+- **Solution**: Filtered to keep only ages 18-60 (reasonable working ages)
+
+### 11. Inconsistent Categorical Values
+- **Problem**: Categorical strings had inconsistent capitalization (e.g., "Sunny", "sunny", "SUNNY")
+- **Solution**: Standardized all categorical strings to lowercase
+
+### 12. Lack of Derived Features
+- **Problem**: Missing important features for analysis
+- **Solution**: Created new features:
+  - `pickup_delay_min`: Time between order and pickup
+  - `order_hour`: Hour of day for the order
+  - `is_peak_hour`: Binary indicator for peak hours (12-14, 19-21)
+  - `delivery_distance_km`: Haversine distance between restaurant and delivery location
+
+### 13. Non-Categorical Data Types
+- **Problem**: Categorical variables stored as strings/numbers instead of category type
+- **Solution**: Converted appropriate columns to categorical dtype for better memory efficiency and analysis
+
+## Final Dataset Characteristics
+
+### Shape
+- Original: 40,109 rows × 17 columns
+- Cleaned: 39,320 rows × 21 columns
+
+### Data Types
+- **Categorical**: delivery_person_age, delivery_person_ratings, weatherconditions, road_traffic_density, vehicle_condition, type_of_order, type_of_vehicle, multiple_deliveries, festival, city
+- **Numeric**: restaurant_latitude, restaurant_longitude, delivery_location_latitude, delivery_location_longitude, time_takenmin, pickup_delay_min, order_hour, is_peak_hour, delivery_distance_km
+- **Datetime**: time_orderd, time_order_picked
+
+### Key Improvements
+1. **Data Quality**: Removed invalid and outlier data
+2. **Consistency**: Standardized formats and naming
+3. **Completeness**: Handled all missing values
+4. **Usability**: Added derived features for better analysis
+5. **Efficiency**: Optimized data types for memory and performance
+
+## Files Generated
+- `FDD.csv`: Initial conversion from JSON to CSV
+- `cleaned_delivery_data.csv`: Final cleaned and processed dataset
+- `cod1.py`: Python script containing all cleaning operations
+
+This cleaned dataset is now ready for exploratory data analysis, visualization, and machine learning modeling.

@@ -1,0 +1,45 @@
+Distance vs ETA
+----------------
+- Correlation between distance and ETA: 0.325
+- Mean ETA by distance quintile:
+  - Closest trips: 21.66 min
+  - Next group: 24.66 min
+  - Middle group: 25.65 min
+  - Fourth group: 29.99 min
+  - Farthest trips: 29.98 min
+- Conclusion: Larger distance generally increases ETA.
+
+Traffic Impact
+--------------
+- Mean delivery times by traffic:
+  - jam: 31.15 min
+  - high: 27.19 min
+  - medium: 26.75 min
+  - low: 21.24 min
+- The worst traffic condition is jam, which increases delivery time the most.
+
+Weather Impact
+--------------
+- Mean delivery times by weather:
+  - fog: 29.05 min
+  - cloudy: 29.02 min
+  - windy: 26.21 min
+  - stormy: 26.02 min
+  - sandstorms: 26.00 min
+  - sunny: 21.85 min
+- Conclusion: Fog causes the highest delays, with cloudy conditions close behind.
+
+Vehicle Performance
+-------------------
+- Mean delivery times by vehicle type:
+  - electric_scooter: 24.50 min
+  - scooter: 24.55 min
+  - motorcycle: 27.69 min
+- Conclusion: Electric scooters and scooters perform better than motorcycles.
+
+Peak Hour Effect
+----------------
+- Peak hour deliveries mean ETA: 28.89 min
+- Non-peak deliveries mean ETA: 24.03 min
+- Peak-hour distance is also higher: 11.29 km vs 8.15 km
+- Conclusion: Rush-hour deliveries are roughly 4.9 minutes slower on average and cover longer distances.

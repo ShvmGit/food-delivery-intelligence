@@ -1,0 +1,44 @@
+PHASE 3 — MODEL INTERPRETATION: FEATURE COEFFICIENTS ANALYSIS
+
+Key Insights from Feature Coefficients:
+
+POSITIVE IMPACT (Increase Delivery Time):
+- multiple_deliveries (+3.66 min): Each additional delivery in a route adds ~3.7 minutes to total delivery time.
+  Business Impact: Multiple deliveries create inefficiencies - consider route optimization or dedicated single-delivery drivers for time-sensitive orders.
+
+- traffic_score (+2.77 min): Higher traffic congestion significantly increases delivery time.
+  Business Impact: Real-time traffic monitoring and alternative routing during peak congestion could save substantial time.
+
+- delivery_person_age (+0.40 min): Older delivery personnel take longer.
+  Business Impact: Experience vs. speed trade-off - younger drivers may be faster but less experienced; training programs could help.
+
+- distance_km (+0.38 min): Each additional kilometer adds ~0.38 minutes.
+  Business Impact: Distance is a major cost driver - optimize delivery zones and consider strategic restaurant partnerships to reduce average distance.
+
+- weather_score (+0.32 min): Adverse weather conditions increase delivery time.
+  Business Impact: Weather contingency planning with backup vehicles and adjusted ETAs during poor weather.
+
+NEGATIVE IMPACT (Decrease Delivery Time):
+- delivery_person_ratings (-7.34 min): Higher-rated delivery personnel are significantly faster.
+  Business Impact: Top performers deliver ~7.3 minutes faster - focus on retaining high-rated drivers and understanding what makes them successful.
+
+- vehicle_condition (-2.45 min): Better vehicle condition reduces delivery time by ~2.5 minutes.
+  Business Impact: Regular vehicle maintenance pays off in faster deliveries and better customer satisfaction.
+
+- is_peak_hour (-1.29 min): Surprisingly, peak hours actually decrease delivery time.
+  Business Impact: This counterintuitive result suggests the model may be capturing other factors; peak hour effects might be better represented by traffic_score.
+
+- order_hour (-0.06 min): Later order times slightly reduce delivery time.
+  Business Impact: Minimal impact, but could indicate better traffic conditions later in the day.
+
+- pickup_delay_min (-0.00 min): Restaurant pickup delays have negligible impact.
+  Business Impact: Focus on other bottlenecks rather than pickup delays.
+
+STRATEGIC RECOMMENDATIONS:
+1. Prioritize high-rated drivers for premium/time-sensitive deliveries
+2. Optimize routes to minimize multiple deliveries per trip
+3. Invest in vehicle maintenance for better performance
+4. Use traffic-aware routing during congestion
+5. Zone-based delivery to control distance impact
+
+This coefficient analysis transforms the regression model into actionable business intelligence!
